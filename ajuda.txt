@@ -1,0 +1,3 @@
+g++ main.cpp image.cpp transposed.cpp answer_image.cpp symmetrical.cpp antisymmetric.cpp -o matrix_calculeitor
+
+./matrix_calculeitor
