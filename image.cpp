@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
 void image(int line ,int column ,float headquarters[100][100],int list_headquarters[100][100])
 {
+    setlocale(LC_ALL, "portuguese");
     for (int i = 0; i < line; i++)
     {
         printf("|");

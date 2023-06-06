@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
 bool symmetrical(float** transposed_matrix, int column,int line)
 {
+    setlocale(LC_ALL, "portuguese");
     if (column != line)
     {
         return false;

@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
 void transposed();
 
 int main()
 {
+    setlocale(LC_ALL, "portuguese");
     int option;
     bool repetition = true;
 
@@ -12,7 +14,7 @@ int main()
     {
         system("cls");
 
-        printf("===Cauculadora de Matriz===\n\n1 - Analisar Matriz\n2 - Sair\n\n");
+        printf("===Calculadora de Matriz===\n\n1 - Analisar Matriz\n2 - Sair\n\n");
         scanf("%d",&option);
 
         switch (option)

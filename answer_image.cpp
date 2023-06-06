@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
 float** answer_image(int line, int column, float headquarters[100][100], float main_line[100])
 {
+    setlocale(LC_ALL, "portuguese");
     int x = 0, y = 0;
 
     float** transposed_matrix = (float**)malloc(column * sizeof(float*));
