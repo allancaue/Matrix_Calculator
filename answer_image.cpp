@@ -1,54 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int** answer_image(int line,int column, int headquarters[100][100], int main_line[100])
+float** answer_image(int line, int column, float headquarters[100][100], float main_line[100])
 {
-    int y = 0, x = 0;
+    int x = 0, y = 0;
 
-    int** transposed_matrix = (int**)malloc(line * sizeof(int*));
-    for (int i = 0; i < line; i++) {
-        transposed_matrix[i] = (int*)malloc(column * sizeof(int));
+    float** transposed_matrix = (float**)malloc(column * sizeof(float*));
+    for (int i = 0; i < column; i++) {
+        transposed_matrix[i] = (float*)malloc(line * sizeof(float));
     }
 
-    for (int i = (line - 1); i >= 0; i--)
-    {
-        y = 0;
-        for (int l = (column - 1); l >= 0; l--)
-        {
-            transposed_matrix[x][y] = headquarters[i][l];
-            y++;
+    if (line == column) {
+        for (int i = 0; i < line; i++) {
+            for (int j = 0; j < column; j++) {
+                transposed_matrix[j][i] = headquarters[i][j];
+            }
         }
-        x++;
-    }
-
-    for (int i = 0; i < line; i++)
-    {
-        for (int l = 0; l < column; l++)
-        {
-            if (i == l)
-            {
-                transposed_matrix[i][l] = main_line[i];
+    } else {
+        for (int i = 0; i < line; i++) {
+            for (int j = 0; j < column; j++) {
+                if (i == j) {
+                    transposed_matrix[j][i] = main_line[i];
+                } else {
+                    transposed_matrix[j][i] = 0.0;
+                }
             }
         }
     }
 
-    for (int i = 0; i < line; i++)
-    {
+    for (int i = 0; i < column; i++) {
         printf("|");
-        for (int l = 0; l < column; l++)
-        {
-            printf(" %d ",transposed_matrix[i][l]);
-            if(transposed_matrix[i][l] < 10)
-            {
+        for (int j = 0; j < line; j++) {
+            printf(" %f ", transposed_matrix[i][j]);
+            if (transposed_matrix[i][j] < 10) {
                 printf(" ");
             }
         }
-        printf("|");
-        printf("\n");
+        printf("|\n");
     }
 
     return transposed_matrix;
 }
-
-    
-    

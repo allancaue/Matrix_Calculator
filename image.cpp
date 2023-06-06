@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void image(int line ,int column ,int headquarters[100][100],int list_headquarters[100][100])
+void image(int line ,int column ,float headquarters[100][100],int list_headquarters[100][100])
 {
     for (int i = 0; i < line; i++)
     {
@@ -25,7 +25,7 @@ void image(int line ,int column ,int headquarters[100][100],int list_headquarter
         printf("|");
         for (int l = 0; l < column; l++)
         {
-            printf(" %d ",headquarters[i][l]);
+            printf(" %f ",headquarters[i][l]);
             if(headquarters[i][l] < 10)
             {
                 printf(" ");

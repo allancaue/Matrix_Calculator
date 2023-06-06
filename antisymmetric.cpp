@@ -1,17 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-bool antisymmetric(int total, int** transposed_matrix)
+bool antisymmetric(float** transposed_matrix, int column,int line)
 {
-    for (int i = 0; i < total; i++) {
-        if (transposed_matrix[i][i] != 0) {
+    if (column != line)
+    {
+        return false;
+    }
+
+    for (int i = 0; i < line; i++) 
+    {
+        if (transposed_matrix[i][i] != 0) 
+        {
             return false;
         }
     }
 
-    for (int i = 0; i < total; i++) {
-        for (int j = i + 1; j < total; j++) {
-            if (transposed_matrix[i][j] != -transposed_matrix[j][i]) {
+    for (int i = 0; i < line; i++) 
+    {
+        for (int j = 0; j < column; j++) 
+        {
+            if (transposed_matrix[i][j] != -transposed_matrix[j][i]) 
+            {
                 return false;
             }
         }

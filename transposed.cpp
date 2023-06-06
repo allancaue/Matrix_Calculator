@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void image(int line ,int column ,int headquarters[100][100], int list_headquarters[100][100]);
-int** answer_image(int line,int column, int headquarters[100][100], int main_line[100]);
-bool symmetrical(int** transposed_matrix, int column,int line);
-bool antisymmetric(int total, int** transposed_matrix);
+void image(int line ,int column ,float headquarters[100][100], int list_headquarters[100][100]);
+float** answer_image(int line,int column, float headquarters[100][100], float main_line[100]);
+bool symmetrical(float** transposed_matrix, int column,int line);
+bool antisymmetric(float** transposed_matrix, int column,int line);
 
 void transposed()
 {
-    int headquarters[100][100],list_headquarters[100][100],main_line[100];
-    int column,line,total,value_to_be_placed;
+    float headquarters[100][100],main_line[100];
+    int column,line,total,list_headquarters[100][100];
+    float value_to_be_placed;
     int list[10000],z = 0, position;
     bool true_headquarters[100][100];
     list[0] = 0;
@@ -56,7 +57,7 @@ void transposed()
                 if(position == z && true_headquarters[i][l] == false)
                 {
                     printf("escolha o valor a ser colocado: ");
-                    scanf("%d", &value_to_be_placed);
+                    scanf("%f", &value_to_be_placed);
 
                     if(i == l)
                     {
@@ -82,7 +83,7 @@ void transposed()
 
     printf("A matriz transposta e:\n\n");
 
-    int** transposed_matrix = answer_image(line, column, headquarters, main_line);
+    float** transposed_matrix = answer_image(line, column, headquarters, main_line);
 
     printf("\n\n");
 
@@ -95,7 +96,7 @@ void transposed()
         printf("A matriz neo e simetrica\n\n");
     }
 
-    if (antisymmetric(total, transposed_matrix) == true)
+    if (antisymmetric(transposed_matrix, column, line) == true)
     {
         printf("A matriz e antisimetrica\n\n");
     }
